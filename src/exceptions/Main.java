@@ -1,5 +1,6 @@
 package exceptions;
 
+import exceptions.customexceptions.MyCheckedException;
 import exceptions.customexceptions.MyOwnRuntimeException;
 import static java.lang.System.*;
 
@@ -16,7 +17,14 @@ public class Main {
 		out.println("Returned to main");
 		
 		out.println("\n************ 3- Working with declared Exceptions ***********\n");
-
+		
+		try {
+			Main.throwsCheckedException();
+		} catch (MyCheckedException e) {
+			e.printStackTrace();
+		}
+		
+		out.println("end of demo.");
 	}
 	
 	public static void catchingExceptions() {
@@ -56,8 +64,14 @@ public class Main {
 		}
 	}
 	
-	public static void throwsDeclaredException() {
-		
+	/*
+	 * Für sogenannte 'Checked Exceptions' ist eine Fehlerbehandlung zwingend.
+	 * Eine Methode muss einen Code-Block der eine solche Exception werfen kann entwededer
+	 * mit einem try/catch statement umgeben, oder die Exception über 'throws' deklarieren.
+	 * Im letzeren Fall müssen sich aufrufende Methoden um die Fehlerbehandlung kümmern.
+	 */
+	public static void throwsCheckedException()  throws MyCheckedException  {
+		throw new MyCheckedException("This Exception has to be handled!");
 	}
 
 }
