@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/constructors/MyObject.java=UTF-8
 encoding//src/exceptions/Main.java=UTF-8
 encoding//src/overriding/ExtendedClass.java=UTF-8
 encoding//src/valueVSreference/ComplexCloneObject_CorrectImplementation.java=UTF-8

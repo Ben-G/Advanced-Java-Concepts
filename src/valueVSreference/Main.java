@@ -1,14 +1,20 @@
 package valueVSreference;
 
+import static java.lang.System.out;
+
 public class Main {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		out.println("\n************ 1- Primitive Types ***********\n");
 		Main.primitiveTypes();
+		out.println("\n************ 2- Object Types ***********\n");
 		Main.objectTypes();
+		out.println("\n************ 3- Clone Wrong ***********\n");
 		Main.cloneComplexWrong();
+		out.println("\n************ 4- Clone Correct ***********\n");
 		Main.cloneComplexCorrect();
 	}
 	
@@ -149,9 +155,7 @@ public class Main {
 		object2.getIntegerValues().add(40);
 		
 		/*
-		 * Oh Nein! In dieser Ausgabe stellen wir fest, dass die Werte '20' und '40' sowohl für die Instanz
-		 * von 'object1' als auch für die Instanz von 'object2' verändert wurden!
-		 * Das Klonen hat nicht korrekt funktioniert!
+		 * Juhu! Diesmal wurde korrekt geklont.
 		 */
 		System.out.println(object1);
 		System.out.println(object2);
