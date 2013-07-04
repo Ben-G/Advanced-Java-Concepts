@@ -9,6 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		/* Diese Methode kann ohne Sonderbehandlung aufgerufen werden, da 'RuntimeExceptions' nicht abgefangen werden müssen. */
 		// unchecked.throwsAnUncheckedException();
+		
 		out.println("\n************ 1- Catching Exceptions ***********\n");
 		Main.catchingExceptions();
 		

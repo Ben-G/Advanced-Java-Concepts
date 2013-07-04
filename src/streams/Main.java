@@ -61,8 +61,11 @@ public class Main {
 		try {
 			/*
 			 * Java verwendet für seine Streams das so genannte Decorator-Pattern.
-			 * Dies wird hier sehr gut beschrieben: http://stackoverflow.com/questions/6366385/decorator-pattern-for-io
+			 * Dies wird hier sehr gut beschrieben: http://stackoverflow.com/questions/6366385/decorator-pattern-for-io.
+			 * Viele OutputStream Klassen, lassen sich selbst mit einer Implementierung einer Klasse OutputStream initialisieren.
+			 * Somit können einzelne Streams andere Streams umgeben.
 			 */
+			
 			fileStream = new FileOutputStream("TestFile.txt");
 			DataOutputStream dataStream = new DataOutputStream(fileStream);
 			dataStream.writeUTF("My great String \n Multiple Lines");
@@ -117,6 +120,7 @@ public class Main {
 			objectOutputStream.writeInt(5100);
 			objectOutputStream.writeObject("String Test");
 			objectOutputStream.writeObject(benjamin);
+			objectOutputStream.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -125,6 +129,9 @@ public class Main {
 	}
 	
 	public static void readWithObjectStream() {
+		/* Die Inhalte der geschriebenen Datei müssen in der gleichen Reihenfolge wieder ausgelesen
+		 * werden, in der sie geschrieben wurden.
+		 */
 		FileInputStream fileStream;
 		
 		HumanBeing benjamin = null;
@@ -136,6 +143,7 @@ public class Main {
 			
 			objectInputStream.readObject();
 			benjamin = (HumanBeing) objectInputStream.readObject();
+			objectInputStream.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -188,6 +196,9 @@ public class Main {
 	}
 	
 	public static void readWithEncryptedObjectStream() {
+		/* Die Inhalte der geschriebenen Datei müssen in der gleichen Reihenfolge wieder ausgelesen
+		 * werden, in der sie geschrieben wurden.
+		 */
 		FileInputStream fileStream;
 		
 		HumanBeing benjamin = null;
